@@ -9,7 +9,7 @@ export const MoviesData = [
     year: 2022,
     time: 3,
     video: "",
-    rate: 3.4,
+    rate: 3,
   },
   {
     name: "The Conjuring",
@@ -33,7 +33,7 @@ export const MoviesData = [
     year: 2000,
     time: 11,
     video: "",
-    rate: 2.5,
+    rate: 2,
   },
   {
     name: "Lets Be a crops",
@@ -45,7 +45,7 @@ export const MoviesData = [
     year: 2022,
     time: 5,
     video: "",
-    rate: 1.5,
+    rate: 1,
   },
   {
     name: "Below her mouth",
@@ -69,7 +69,7 @@ export const MoviesData = [
     year: 2012,
     time: 19,
     video: "",
-    rate: 4.5,
+    rate: 4,
   },
   {
     name: "Scarlet Heart",
@@ -93,7 +93,7 @@ export const MoviesData = [
     year: 1999,
     time: 6,
     video: "",
-    rate: 2.5,
+    rate: 2,
   },
   {
     name: "Titanic",
