@@ -103,7 +103,7 @@ export const MoviesData = [
     category: "Drama",
     language: "Swahili",
     year: 2012,
-    time: 4,
+    time: 5,
     video: "",
     rate: 1,
   },
