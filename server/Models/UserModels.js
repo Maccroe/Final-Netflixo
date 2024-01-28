@@ -1,4 +1,4 @@
-import { mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 const UserSchema = mongoose.Schema(
   {
@@ -27,7 +27,7 @@ const UserSchema = mongoose.Schema(
     likedMovies: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Movie",
+        ref: "Movies",
       },
     ],
   },
