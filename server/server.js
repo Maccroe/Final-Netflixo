@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./Config/db.js";
 import { errorHandler } from './middlewares/errorMiddleware.js';
 import userRouter from "./Routes/UserRouter.js";
+import moviesRouter from "./Routes/MoviesRouter.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 // other routes
 app.use("/api/users", userRouter);
+app.use("/api/movies", moviesRouter);
 
 // error handling middleware
 app.use(errorHandler);
