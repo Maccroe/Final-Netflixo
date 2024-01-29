@@ -15,5 +15,9 @@ router.get("/random/all", moviesController.getRandomMovies);
 router.post("/:id/reviews", protect, moviesController.createMovieReview);
 
 // ******** ADMIN ROUTES ********
+router.put("/:id", protect, admin, moviesController.updateMovie);
+router.delete("/:id", protect, admin, moviesController.deleteMovie);
+router.delete("/", protect, admin, moviesController.deleteAllMovies);
+router.post("/", protect, admin, moviesController.createMovie);
 
 export default router;
