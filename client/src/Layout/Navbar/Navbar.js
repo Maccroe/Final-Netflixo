@@ -2,8 +2,10 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaHeart, FaSearch } from "react-icons/fa";
 import { CgUser } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const { userInfo } = useSelector((state) => state.userLogin);
   const hover = "hover:text-subMain transitions text-white";
   const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
   return (
@@ -47,7 +49,16 @@ function Navbar() {
             <NavLink to="/contact-us" className={Hover}>
               Contact Us
             </NavLink>
-            <NavLink to="/login" className={Hover}>
+            <NavLink
+              to={
+                userInfo?.isAdmin
+                  ? "/dashboard"
+                  : userInfo
+                  ? "/profile"
+                  : "/login"
+              }
+              className={Hover}
+            >
               <CgUser className="w-8 h-8" />
             </NavLink>
             <NavLink to="/favorites" className={`${Hover} relative`}>
