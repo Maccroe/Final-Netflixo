@@ -23,9 +23,9 @@ router.post("/login", loginUser);
 router.put("/", protect, updateUserProfile);
 router.delete("/", protect, deleteUserProfile);
 router.put("/password", protect, changeUserPassword);
-router.get("/favourites", protect, getLikedMovies);
-router.post("/favourites", protect, addLikedMovie);
-router.delete("/favourites", protect, deleteLikedMovies);
+router.get("/favorites", protect, getLikedMovies);
+router.post("/favorites", protect, addLikedMovie);
+router.delete("/favorites", protect, deleteLikedMovies);
 
 // ******** ADMIN ROUTES ********
 router.get("/", protect, admin, getUsers);
