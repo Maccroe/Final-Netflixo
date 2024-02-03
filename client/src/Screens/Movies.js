@@ -14,8 +14,10 @@ import {
   TimesData,
   YearData,
 } from "../Data/FilterData";
+import { useParams } from "react-router-dom";
 
 function MoviesPage() {
+  const { search } = useParams();
   const dispatch = useDispatch();
   const [category, setCategory] = useState({ title: "All Categories" });
   const [year, setYear] = useState(YearData[0]);
@@ -39,10 +41,10 @@ function MoviesPage() {
       language: language?.title === "Sort By Language" ? "" : language?.title,
       rate: rates?.title.replace(/\D/g, ""),
       year: year?.title.replace(/\D/g, ""),
-      search: "",
+      search: search ? search : "",
     };
     return query;
-  }, [category, times, language, rates, year]);
+  }, [category, times, language, rates, year, search]);
 
   // useEffect
   useEffect(() => {
@@ -95,7 +97,7 @@ function MoviesPage() {
           <span className="font-bold text-subMain">
             {movies ? movies?.length : 0}
           </span>{" "}
-          items Found
+          items Found {search && `for "${search}"`}
         </p>
         {isLoading ? (
           <div className="w-full gap-6 flex-colo min-h-screen">
