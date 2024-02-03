@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Aos from "aos";
 import { Route, Routes } from "react-router-dom";
 import ContactUs from "./Screens/ContactUs";
@@ -22,9 +22,16 @@ import ScrollOnTop from "./ScrollOnTop";
 import DrawerContext from "./Context/DrawerContext";
 import ToastContainer from "./Components/Notfications/ToastContainer";
 import { AdminProtectedRouter, ProtectedRouter } from "./ProtectedRouter";
+import { useDispatch } from "react-redux";
+import { getAllCategoriesAction } from "./Redux/Actions/CategoriesActions";
 
 function App() {
   Aos.init();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
+
   return (
     <>
       <ToastContainer />
