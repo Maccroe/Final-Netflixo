@@ -6,8 +6,19 @@ import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import Loader from "../Notfications/Loader";
 import { RiMovie2Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { IfMovieLiked, LikeMovie } from "../../Context/Functionalities";
 
 const Swipper = ({ sameClass, movies }) => {
+  const { isLoading } = useSelector((state) => state.userLikeMovie);
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.userLogin);
+
+  // if liked function
+  const isLiked = (movie) => {
+    return IfMovieLiked(movie);
+  };
+
   return (
     <Swiper
       direction="vertical"
@@ -22,9 +33,9 @@ const Swipper = ({ sameClass, movies }) => {
         <SwiperSlide key={index} className="relative rounded overflow-hidden">
           <img
             src={
-              movie?.image 
-              ? `images/movies/${movie.image}` 
-              : "/images/user.png"
+              movie?.image
+                ? `/images/movies/${movie.image}`
+                : "/images/user.png"
             }
             alt={movie?.name}
             className="w-full h-full object-cover"
@@ -43,7 +54,13 @@ const Swipper = ({ sameClass, movies }) => {
               >
                 Watch
               </Link>
-              <button className="bg-white hover:text-subMain transitions text-white px-4 py-3 rounded text-sm bg-opacity-30">
+              <button
+                onClick={() => LikeMovie(movie, dispatch, userInfo)}
+                disabled={isLiked(movie) || isLoading}
+                className={`bg-white 
+                ${isLiked(movie) ? "text-subMain" : "text-white"}
+                hover:text-subMain transitions  px-4 py-3 rounded text-sm bg-opacity-30`}
+              >
                 <FaHeart />
               </button>
             </div>
