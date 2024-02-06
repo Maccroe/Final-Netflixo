@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "./../Layout/Layout";
 import { Link, useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
@@ -7,12 +7,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovieByIdAction } from "../Redux/Actions/MoviesActions";
 import Loader from "../Components/Notfications/Loader";
 import { RiMovie2Line } from "react-icons/ri";
-import { IfMovieLiked, LikeMovie } from "../Context/Functionalities";
+import {
+  DownloadVideo,
+  IfMovieLiked,
+  LikeMovie,
+} from "../Context/Functionalities";
+import { SidebarContext } from "../Context/DrawerContext";
+import FileSaver from "file-saver";
 
 function WatchPage() {
   let { id } = useParams();
   const dispatch = useDispatch();
   const [play, setPlay] = useState(false);
+  const { progress, setprogress } = useContext(SidebarContext);
   const sameClass = "w-full gap-6 flex-colo min-h-screen";
   // use Selector
   const { isLoading, isError, movie } = useSelector(
@@ -25,6 +32,14 @@ function WatchPage() {
 
   // if liked function
   const isLiked = (movie) => IfMovieLiked(movie);
+
+  // download movie Video
+  const DownloadMovieVideo = async (videoUrl, name) => {
+    await DownloadVideo(videoUrl, setprogress).then((data) => {
+      setprogress(0);
+      FileSaver.saveAs(data, name);
+    });
+  };
 
   // use Effect
   useEffect(() => {
@@ -53,7 +68,11 @@ function WatchPage() {
               >
                 <FaHeart />
               </button>
-              <button className="bg-subMain flex-rows gap-2 hover:text-main transitions text-white rounded px-8 font-medium py-3 text-sm">
+              <button
+                disabled={progress > 0 && progress < 100}
+                onClick={() => DownloadMovieVideo(movie?.video, movie?.name)}
+                className="bg-subMain flex-rows gap-2 hover:text-main transitions text-white rounded px-8 font-medium py-3 text-sm"
+              >
                 <FaCloudDownloadAlt /> Download
               </button>
             </div>
@@ -89,11 +108,7 @@ function WatchPage() {
                   </button>
                 </div>
                 <img
-                  src={
-                    movie?.image
-                      ? `/images/movies/${movie?.image}`
-                      : "images/user.png"
-                  }
+                  src={movie?.image ? movie?.image : "images/user.png"}
                   alt={movie?.name}
                   className="w-full h-full object-cover rounded-lg"
                 />

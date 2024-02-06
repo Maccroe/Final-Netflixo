@@ -33,6 +33,7 @@ function CategoryModal({ modalOpen, setModalOpen, category }) {
       } else {
         dispatch(createCategoryAction({ title: title }));
         setTitle("");
+        setModalOpen(!modalOpen);
       }
     } else {
       toast.error("Please write a category name");

@@ -4,10 +4,7 @@ import { HiPlusCircle } from "react-icons/hi";
 import Table2 from "../../../Components/Table2";
 import CategoryModal from "../../../Components/Modals/CategoryModal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteCategoryAction,
-  getAllCategoriesAction,
-} from "../../../Redux/Actions/CategoriesActions";
+import { deleteCategoryAction } from "../../../Redux/Actions/CategoriesActions";
 import Loader from "../../../Components/Notfications/Loader";
 import { Empty } from "../../../Components/Notfications/Empty";
 import toast from "react-hot-toast";
@@ -35,7 +32,6 @@ function Categories() {
   };
 
   useEffect(() => {
-    dispatch(getAllCategoriesAction());
     if (isError) {
       toast.error(isError);
       dispatch({ type: "DELETE_CATEGORY_RESET" });

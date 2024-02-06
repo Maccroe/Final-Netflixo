@@ -39,7 +39,7 @@ function EditMovie() {
     (state) => state.getMovieById
   );
   const {
-    isLoading: editLoading,
+    // isLoading: editLoading,
     isError: editError,
     isSuccess,
   } = useSelector((state) => state.updateMovie);
@@ -49,7 +49,7 @@ function EditMovie() {
   const {
     register,
     handleSubmit,
-    reset,
+    // reset,
     setValue,
     formState: { errors },
   } = useForm({
