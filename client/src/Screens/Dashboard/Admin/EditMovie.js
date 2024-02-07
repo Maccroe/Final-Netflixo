@@ -39,7 +39,7 @@ function EditMovie() {
     (state) => state.getMovieById
   );
   const {
-    // isLoading: editLoading,
+    isLoading: editLoading,
     isError: editError,
     isSuccess,
   } = useSelector((state) => state.updateMovie);
@@ -49,7 +49,6 @@ function EditMovie() {
   const {
     register,
     handleSubmit,
-    // reset,
     setValue,
     formState: { errors },
   } = useForm({
@@ -93,7 +92,7 @@ function EditMovie() {
     if (modalOpen === false) {
       setCast();
     }
-    // if its success then reset form and navigate to addMovie
+    // if its success then reset form and navigate to editMovie
     if (isSuccess) {
       dispatch({ type: "UPDATE_MOVIE_RESET" });
       navigate(`/edit/${id}`);
@@ -193,10 +192,7 @@ function EditMovie() {
                 Image without Title
               </p>
               <Uploader setImageUrl={setImageWithoutTitle} />
-              <Imagepreview
-                image={imageWithoutTitle}
-                name="imageWithoutTitle"
-              />
+              <Imagepreview image={imageWithoutTitle} name="imageWithouTitle" />
             </div>
             {/* image with title */}
             <div className="flex flex-col gap-2">
@@ -230,7 +226,7 @@ function EditMovie() {
           </div>
           {/* MOVIE VIDEO */}
 
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full ">
             <label className="text-border font-semibold text-sm">
               Movie Video
             </label>
@@ -246,7 +242,7 @@ function EditMovie() {
             </div>
           </div>
           {/* CASTS */}
-          <div className="w-full grid lg:grid-cols-2 gap-6 items-start">
+          <div className="w-full grid lg:grid-cols-2 gap-6 items-start ">
             <div className="w-full">
               <button
                 onClick={() => setModalOpen(true)}
@@ -296,15 +292,15 @@ function EditMovie() {
           </div>
           {/* SUBMIT */}
           <button
-            disabled={isLoading}
+            disabled={editLoading}
             onClick={handleSubmit(onSubmit)}
             className="bg-subMain w-full flex-rows gap-6 font-medium text-white py-4 rounded"
           >
-            {isLoading ? (
+            {editLoading ? (
               "Updating..."
             ) : (
               <>
-                <ImUpload /> Publish Movie
+                <ImUpload /> Update Movie
               </>
             )}
           </button>

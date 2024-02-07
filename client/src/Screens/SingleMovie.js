@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import Layout from "./../Layout/Layout";
 import { useParams } from "react-router-dom";
-import MovieInfo from "../Components/Single/MovieInfo";
 import MovieCasts from "../Components/Single/MovieCasts";
+import MovieInfo from "../Components/Single/MovieInfo";
 import MovieRates from "../Components/Single/MovieRates";
 import Titles from "../Components/Titles";
+import Layout from "../Layout/Layout";
 import { BsCollectionFill } from "react-icons/bs";
-import Movie from "./../Components/Movie";
+import Movie from "../Components/Movie";
 import ShareMovieModal from "../Components/Modals/ShareModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieByIdAction } from "../Redux/Actions/MoviesActions";
@@ -40,7 +40,7 @@ function SingleMovie() {
 
   // use Effect
   useEffect(() => {
-    // movie id
+    //  movie id
     dispatch(getMovieByIdAction(id));
   }, [dispatch, id]);
 

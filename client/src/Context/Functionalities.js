@@ -10,7 +10,7 @@ const IfMovieLiked = (movie) => {
   return likedMovies?.find((likedMovie) => likedMovie?._id === movie?._id);
 };
 
-// like movie functionality
+// like movie functionalty
 const LikeMovie = (movie, dispatch, userInfo) => {
   return !userInfo
     ? toast.error("Please Login to add to favorites")
@@ -21,7 +21,7 @@ const LikeMovie = (movie, dispatch, userInfo) => {
       );
 };
 
-// download video url functionality
+// download video url functionalty
 const DownloadVideo = async (videoUrl, setProgress) => {
   const { data } = await Axios({
     url: videoUrl,

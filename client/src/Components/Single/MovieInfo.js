@@ -1,7 +1,7 @@
 import React from "react";
-import FlexMovieItems from "./../FlexMovieItems";
 import { FaPlay, FaShareAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import FlexMovieItems from "../FlexMovieItems";
 import { FiLogIn } from "react-icons/fi";
 import Rating from "../Stars";
 
@@ -86,5 +86,4 @@ function MovieInfo({ movie, setModalOpen, DownloadVideo, progress }) {
     </div>
   );
 }
-
 export default MovieInfo;
