@@ -10,7 +10,7 @@
 import axios from "axios";
 
 const Axios = axios.create({
-  baseURL: "https://5000-maccroe-netflixo1-32coukwr2xp.ws-us108.gitpod.io/api",
+  baseURL: "https://netflixo-hae0.onrender.com/api",
 });
 
 export default Axios;
