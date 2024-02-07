@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Uploder from "../../../Components/Uploder";
+import { Input, Message, Select } from "../../../Components/UsedInputs";
 import SideBar from "../SideBar";
-import { Input, Message, Select } from "../../../Components/Usedinputs";
-import Uploader from "../../../Components/Uploader";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { ImUpload } from "react-icons/im";
@@ -191,7 +191,7 @@ function EditMovie() {
               <p className="text-border font-semibold text-sm">
                 Image without Title
               </p>
-              <Uploader setImageUrl={setImageWithoutTitle} />
+              <Uploder setImageUrl={setImageWithoutTitle} />
               <Imagepreview image={imageWithoutTitle} name="imageWithouTitle" />
             </div>
             {/* image with title */}
@@ -199,7 +199,7 @@ function EditMovie() {
               <p className="text-border font-semibold text-sm">
                 Image with Title
               </p>
-              <Uploader setImageUrl={setImageTitle} />
+              <Uploder setImageUrl={setImageTitle} />
               <Imagepreview image={imageTitle} name="imageTitle" />
             </div>
           </div>
@@ -238,7 +238,7 @@ function EditMovie() {
                   Video Uploaded!!!
                 </div>
               )}
-              <Uploader setImageUrl={setVideoUrl} />
+              <Uploder setImageUrl={setVideoUrl} />
             </div>
           </div>
           {/* CASTS */}

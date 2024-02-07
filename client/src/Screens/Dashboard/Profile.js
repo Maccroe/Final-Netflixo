@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import SideBar from "./SideBar";
-import Uploader from "../../Components/Uploader";
-import { Input } from "../../Components/Usedinputs";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ProfileValidation } from "../../Components/Validation/UserValidation";
-import { InlineError } from "../../Components/Notfications/Error";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import { Imagepreview } from "../../Components/Imagepreview";
+import { InlineError } from "../../Components/Notfications/Error";
+import Uploder from "../../Components/Uploder";
+import { Input } from "../../Components/UsedInputs";
+import { ProfileValidation } from "../../Components/Validation/UserValidation";
 import {
   deleteProfileAction,
   updateProfileAction,
 } from "../../Redux/Actions/userActions";
-import toast from "react-hot-toast";
+import SideBar from "./SideBar";
 
 function Profile() {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.userLogin);
-  const [imageUrl, setImageUrl] = useState(userInfo ? userInfo?.image : "");
+  const [imageUrl, setImageUrl] = useState(userInfo ? userInfo.image : "");
   const { isLoading, isError, isSuccess } = useSelector(
     (state) => state.userUpdateProfile
   );
@@ -67,13 +67,13 @@ function Profile() {
         <h2 className="text-xl font-bold">Profile</h2>
         <div className="w-full grid lg:grid-cols-12 gap-6">
           <div className="col-span-10">
-            <Uploader setImageUrl={setImageUrl} />
+            <Uploder setImageUrl={setImageUrl} />
           </div>
           {/* image preview */}
           <div className="col-span-2">
             <Imagepreview
               image={imageUrl}
-              name={userInfo ? userInfo?.fullName : "Netflixo React Tailwind"}
+              name={userInfo ? userInfo.fullName : "Netflixo React Tailwind"}
             />
           </div>
         </div>

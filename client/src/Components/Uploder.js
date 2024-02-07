@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { FiUploadCloud } from "react-icons/fi";
-import Loader from "./Notfications/Loader";
 import { uploadImageservice } from "../Redux/APIs/ImageUploadService";
+import Loader from "./Notfications/Loader";
 
-function Uploader({ setImageUrl }) {
+function Uploder({ setImageUrl }) {
   const [loading, setLoading] = useState(false);
 
   // upload file
@@ -20,8 +20,8 @@ function Uploader({ setImageUrl }) {
 
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
-      multiple: false,
       onDrop,
+      multiple: false,
     });
   return (
     <div className="w-full text-center flex-colo gap-6">
@@ -52,4 +52,4 @@ function Uploader({ setImageUrl }) {
   );
 }
 
-export default Uploader;
+export default Uploder;

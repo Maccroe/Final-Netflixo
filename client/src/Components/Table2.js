@@ -3,10 +3,10 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { DateFormat, shortUppercaseId } from "./Notfications/Empty";
 
-const Head = "text-xs text-left text-dry font-semibold px-6 py-2 uppercase";
+const Head = "text-xs text-left text-main font-semibold px-6 py-2 uppercase";
 const Text = "text-sm text-left leading-6 whitespace-nowrap px-5 py-3";
 
-// Rows
+// rows
 const Rows = ({ data, users, OnEditFunction, onDeleteFunction }) => {
   return (
     <tr>
@@ -69,7 +69,7 @@ const Rows = ({ data, users, OnEditFunction, onDeleteFunction }) => {
   );
 };
 
-// Table
+// table
 function Table2({ data, users, OnEditFunction, onDeleteFunction }) {
   return (
     <div className="overflow-x-scroll overflow-hidden relative w-full">

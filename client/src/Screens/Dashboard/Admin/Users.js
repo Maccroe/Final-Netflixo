@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import SideBar from "../SideBar";
-import Table2 from "../../../Components/Table2";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import Table2 from '../../../Components/Table2';
+import SideBar from '../SideBar';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteUserAction,
   getAllUsersAction,
-} from "../../../Redux/Actions/userActions";
-import toast from "react-hot-toast";
-import Loader from "../../../Components/Notfications/Loader";
-import { Empty } from "../../../Components/Notfications/Empty";
+} from '../../../Redux/Actions/userActions';
+import toast from 'react-hot-toast';
+import Loader from '../../../Components/Notfications/Loader';
+import { Empty } from '../../../Components/Notfications/Empty';
 
 function Users() {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function Users() {
 
   // delete user handler
   const deleteMoviesHandler = (id) => {
-    if (window.confirm("Are you sure you want to delete this user?")) {
+    if (window.confirm('Are you sure you want to delete this user?')) {
       dispatch(deleteUserAction(id));
     }
   };
@@ -31,13 +31,17 @@ function Users() {
   // useEffect
   useEffect(() => {
     dispatch(getAllUsersAction());
+  }, [dispatch, isSuccess]);
+
+  // useEffect
+  useEffect(() => {
     if (isError || deleteError) {
       toast.error(isError || deleteError);
       dispatch({
-        type: isError ? "GET_ALL_USERS_RESET" : "DELETE_USER_RESET",
+        type: isError ? 'GET_ALL_USERS_RESET' : 'DELETE_USER_RESET',
       });
     }
-  }, [dispatch, isError, deleteError, isSuccess]);
+  }, [dispatch, isError, deleteError]);
 
   return (
     <SideBar>

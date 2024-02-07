@@ -1,5 +1,5 @@
-import React, { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import React, { Fragment, useRef } from "react";
 import { IoClose } from "react-icons/io5";
 
 function MainModal({ modalOpen, setModalOpen, children }) {
@@ -23,7 +23,7 @@ function MainModal({ modalOpen, setModalOpen, children }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-60" />
+              <Dialog.Overlay className="fixed inset-0 bg-black opacity-60" />
             </Transition.Child>
             <span
               className="inline-block h-screen align-middle"
@@ -47,8 +47,8 @@ function MainModal({ modalOpen, setModalOpen, children }) {
                 onClick={() => setModalOpen(false)}
                 type="button"
                 className="
-                transitions w-10 h-10 flex-colo text-base text-subMain bg-white rounded-full hover:bg-subMain hover:text-white
-                "
+              transitions w-10 h-10 flex-colo text-base text-subMain bg-white rounded-full hover:bg-subMain hover:text-white
+              "
               >
                 <IoClose />
               </button>

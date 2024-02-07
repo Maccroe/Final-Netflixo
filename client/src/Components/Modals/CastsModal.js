@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainModal from "./MainModal";
-import { Input } from "./../Usedinputs";
-import Uploader from "./../Uploader";
+import { Input } from "../UsedInputs";
+import Uploder from "../Uploder";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,7 +30,7 @@ function CastsModal({ modalOpen, setModalOpen, cast }) {
   } = useForm({
     resolver: yupResolver(
       yup.object().shape({
-        name: yup.string().required("Cast name is required"),
+        name: yup.string().required("Cast Name is required"),
       })
     ),
   });
@@ -71,7 +71,7 @@ function CastsModal({ modalOpen, setModalOpen, cast }) {
 
   return (
     <MainModal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-      <div className="inline-block sm:w-4/5 border border-border md:w-3/5 lg:w-2/5 w-full align-middle p-10 overflow-y-auto h-full bg-main text-white rounded-2xl opacity-100 scale-100">
+      <div className="inline-block sm:w-4/5 border border-border md:w-3/5 lg:w-2/5 w-full align-middle p-10 overflow-y-auto h-full bg-main text-white rounded-2xl">
         <h2 className="text-3xl font-bold">
           {cast ? "Update Cast" : "Create Cast"}
         </h2>
@@ -92,7 +92,7 @@ function CastsModal({ modalOpen, setModalOpen, cast }) {
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-border font-semibold text-sm">Cast Image</p>
-            <Uploader setImageUrl={setCastImage} />
+            <Uploder setImageUrl={setCastImage} />
             <Imagepreview
               image={image ? image : "/images/user.png"}
               name="castImage"

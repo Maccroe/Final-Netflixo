@@ -2,7 +2,7 @@ import Axios from "./Axios";
 
 // ************ PUBLIC APIs ************
 
-// Get  all categories API function
+// Get all categories API function
 const getCategoriesService = async () => {
   const { data } = await Axios.get("/categories");
   return data;

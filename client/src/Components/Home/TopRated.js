@@ -62,9 +62,9 @@ const SwiperTop = ({ prevEl, nextEl, movies }) => {
               <button
                 onClick={() => LikeMovie(movie, dispatch, userInfo)}
                 disabled={isLiked(movie) || isLoading}
-                className={`w-12 h-12 flex-colo transitions hover:bg-subMain rounded-full 
-              ${isLiked(movie) ? "bg-subMain" : "bg-white bg-opacity-30"}
-               text-white`}
+                className={`w-12 h-12 flex-colo transitions hover:bg-subMain rounded-full
+               ${isLiked(movie) ? "bg-subMain" : "bg-white bg-opacity-30"}
+                text-white`}
               >
                 <FaHeart />
               </button>
@@ -100,7 +100,7 @@ function TopRated({ movies, isLoading }) {
         ) : movies?.length > 0 ? (
           <SwiperTop nextEl={nextEl} prevEl={prevEl} movies={movies} />
         ) : (
-          <Empty message="It seem's like we dont have any movies" />
+          <Empty message="It seem's like we dont have any movie" />
         )}
         <div className="w-full px-1 flex-rows gap-6 pt-12">
           <button className={classNames} ref={(node) => setPrevtEl(node)}>

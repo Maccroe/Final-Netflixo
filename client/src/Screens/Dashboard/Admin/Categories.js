@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "../SideBar";
 import { HiPlusCircle } from "react-icons/hi";
 import Table2 from "../../../Components/Table2";
+import SideBar from "../SideBar";
 import CategoryModal from "../../../Components/Modals/CategoryModal";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCategoryAction } from "../../../Redux/Actions/CategoriesActions";
@@ -21,7 +21,7 @@ function Categories() {
   // delete category
   const { isSuccess, isError } = useSelector((state) => state.categoryDelete);
   const adminDeletecategory = (id) => {
-    if (window.confirm("Are you sure you want to delete this category?")) {
+    if (window.confirm("Are you sure you want to delete this category")) {
       dispatch(deleteCategoryAction(id));
     }
   };

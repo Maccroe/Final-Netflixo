@@ -4,10 +4,10 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { GoEye } from "react-icons/go";
 
-const Head = "text-xs text-left text-dry font-semibold px-6 py-2 uppercase";
+const Head = "text-xs text-left text-main font-semibold px-6 py-2 uppercase";
 const Text = "text-sm text-left leading-6 whitespace-nowrap px-5 py-3";
 
-// Rows
+// rows
 const Rows = (movie, i, onDeleteHandler, admin, downloadVideo, progress) => {
   return (
     <tr key={i}>
@@ -63,7 +63,7 @@ const Rows = (movie, i, onDeleteHandler, admin, downloadVideo, progress) => {
   );
 };
 
-// Table
+// table
 function Table({ data, admin, onDeleteHandler, downloadVideo, progress }) {
   return (
     <div className="overflow-x-scroll overflow-hidden relative w-full">

@@ -98,9 +98,9 @@ export const userGetFavoriteMoviesReducer = (
       return { isLoading: true };
     case userConstants.GET_FAVORITE_MOVIES_SUCCESS:
       return { isLoading: false, likedMovies: action.payload };
-    case userConstants.DELETE_FAVORITE_MOVIES_FAIL:
+    case userConstants.GET_FAVORITE_MOVIES_FAIL:
       return { isLoading: false, isError: action.payload };
-    case userConstants.DELETE_FAVORITE_MOVIES_RESET:
+    case userConstants.GET_FAVORITE_MOVIES_RESET:
       return {};
     default:
       return state;

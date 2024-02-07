@@ -1,6 +1,6 @@
 import React from "react";
-import MainDrawer from "./MainDrawer";
 import { Link, NavLink } from "react-router-dom";
+import MainDrawer from "./MainDrawer";
 import { IoClose } from "react-icons/io5";
 import { BsCollectionPlay } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
@@ -36,19 +36,19 @@ function MenuDrawer({ drawerOpen, toggleDrawer }) {
   const LinkDatas = [
     {
       icon: FaFacebook,
-      link: "https://www.facebook.com/maccroe",
+      link: "https://www.facebook.com/zpunet",
     },
     {
       icon: FaMedium,
-      link: "https://medium.com/@maccroe",
+      link: "https://medium.com/@irenemmassyy",
     },
     {
       icon: FaTelegram,
-      link: "https://t.me/maccroe",
+      link: "https://t.me/zpunet",
     },
     {
       icon: FaYoutube,
-      link: "https://www.youtube.com/channel/UCtHxsna50Tua9_6Cd427jwA",
+      link: "https://www.youtube.com/channel/UCOYwYO-LEsrjqBs6xXSfq1w",
     },
   ];
 
@@ -67,8 +67,8 @@ function MenuDrawer({ drawerOpen, toggleDrawer }) {
             onClick={toggleDrawer}
             type="button"
             className="
-                transitions w-10 h-10 flex-colo text-base text-subMain bg-white rounded-full hover:bg-subMain hover:text-white
-                "
+              transitions w-10 h-10 flex-colo text-base text-subMain bg-white rounded-full hover:bg-subMain hover:text-white
+              "
           >
             <IoClose />
           </button>

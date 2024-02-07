@@ -1,10 +1,10 @@
 import React from "react";
 import { BsFillGridFill } from "react-icons/bs";
-import { FaHeart, FaListAlt, FaUsers } from "react-icons/fa";
+import { FaListAlt, FaUsers, FaHeart } from "react-icons/fa";
 import {
+  RiMovie2Fill,
   RiLockPasswordLine,
   RiLogoutCircleLine,
-  RiMovie2Fill,
 } from "react-icons/ri";
 import { HiViewGridAdd } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
@@ -114,7 +114,7 @@ function SideBar({ children }) {
               onClick={logoutHandler}
               className={`${inActive} ${hover} w-full `}
             >
-              <RiLogoutCircleLine/> Log Out
+              <RiLogoutCircleLine /> Log Out
             </button>
           </div>
           <div

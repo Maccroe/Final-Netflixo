@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import SideBar from "../SideBar";
-import { FaRegListAlt, FaUser } from "react-icons/fa";
-import { HiViewGridAdd } from "react-icons/hi";
-import Table from "../../../Components/Table";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllUsersAction } from "../../../Redux/Actions/userActions";
-import toast from "react-hot-toast";
-import { Empty } from "../../../Components/Notfications/Empty";
-import Loader from "../../../Components/Notfications/Loader";
-import { deleteMovieAction } from "../../../Redux/Actions/MoviesActions";
+import React, { useEffect } from 'react';
+import { FaRegListAlt, FaUser } from 'react-icons/fa';
+import SideBar from '../SideBar';
+import { HiViewGridAdd } from 'react-icons/hi';
+import Table from '../../../Components/Table';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsersAction } from '../../../Redux/Actions/userActions';
+import toast from 'react-hot-toast';
+import { Empty } from '../../../Components/Notfications/Empty';
+import Loader from '../../../Components/Notfications/Loader';
+import { deleteMovieAction } from '../../../Redux/Actions/MoviesActions';
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function Dashboard() {
 
   // delete movie handler
   const deleteMovieHandler = (id) => {
-    window.confirm("Are you sure you want to delete this movie?") &&
+    window.confirm('Are you sure you want do delete this movie?') &&
       dispatch(deleteMovieAction(id));
   };
 
@@ -41,31 +41,35 @@ function Dashboard() {
   useEffect(() => {
     // get all users
     dispatch(getAllUsersAction());
+  }, [dispatch]);
+
+  // useEffect
+  useEffect(() => {
     // errors
     if (isError || catError || userError || deleteError) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
-  }, [dispatch, isError, catError, userError, deleteError]);
+  }, [isError, catError, userError, deleteError]);
 
   // dashboard datas
   const DashboardData = [
     {
-      bg: "bg-orange-600",
+      bg: 'bg-orange-600',
       icon: FaRegListAlt,
-      title: "Total Movies",
-      total: isLoading ? "Loading..." : totalMovies || 0,
+      title: 'Total Movies',
+      total: isLoading ? 'Loading...' : totalMovies || 0,
     },
     {
-      bg: "bg-blue-700",
+      bg: 'bg-blue-700',
       icon: HiViewGridAdd,
-      title: "Total Categories",
-      total: catLoading ? "Loading..." : categories?.length || 0,
+      title: 'Total Categories',
+      total: catLoading ? 'Loading...' : categories?.length || 0,
     },
     {
-      bg: "bg-green-600",
+      bg: 'bg-green-600',
       icon: FaUser,
-      title: "Total Users",
-      total: userLoading ? "Loading..." : users?.length || 0,
+      title: 'Total Users',
+      total: userLoading ? 'Loading..' : users?.length || 0,
     },
   ];
   return (
@@ -84,7 +88,7 @@ function Dashboard() {
             </div>
             <div className="col-span-3">
               <h2>{data.title}</h2>
-              <p className="mt-2 font-bold">{data.total}</p>
+              <p className=" mt-2 font-bold">{data.total}</p>
             </div>
           </div>
         ))}

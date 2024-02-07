@@ -67,7 +67,7 @@ export const getMovieByIdAction = (id) => async (dispatch) => {
 export const getTopRatedMovieAction = () => async (dispatch) => {
   try {
     dispatch({ type: moviesConstants.MOVIE_TOP_RATED_REQUEST });
-    const response = await moviesAPIs.getTopRatedMoviesService();
+    const response = await moviesAPIs.getTopRatedMovieService();
     dispatch({
       type: moviesConstants.MOVIE_TOP_RATED_SUCCESS,
       payload: response,
@@ -156,7 +156,7 @@ export const createMovieAction = (movie) => async (dispatch, getState) => {
   }
 };
 
-// *******CASTS*******
+// *******CASTS**********
 
 // add cast
 export const addCastAction = (cast) => async (dispatch, getState) => {

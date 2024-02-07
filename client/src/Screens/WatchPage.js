@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Layout from "./../Layout/Layout";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import Layout from "../Layout/Layout";
 import { BiArrowBack } from "react-icons/bi";
 import { FaCloudDownloadAlt, FaHeart, FaPlay } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +43,7 @@ function WatchPage() {
 
   // use Effect
   useEffect(() => {
-    // movie id
+    //  movie id
     dispatch(getMovieByIdAction(id));
   }, [dispatch, id]);
 
@@ -62,9 +62,9 @@ function WatchPage() {
               <button
                 onClick={() => LikeMovie(movie, dispatch, userInfo)}
                 disabled={isLiked(movie) || likeLoading}
-                className={`bg-white hover:text-subMain 
-              ${isLiked(movie) ? "text-subMain" : "text-white"}
-              transitions bg-opacity-30 rounded px-4 py-3 text-sm`}
+                className={`bg-white hover:text-subMain
+               ${isLiked(movie) ? "text-subMain" : "text-white"}
+               transitions bg-opacity-30 rounded px-4 py-3 text-sm`}
               >
                 <FaHeart />
               </button>

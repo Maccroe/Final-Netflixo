@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Input } from "../Components/Usedinputs";
-import Layout from "./../Layout/Layout";
-import { FiLogIn } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { LoginValidation } from "../Components/Validation/UserValidation";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { InlineError } from "../Components/Notfications/Error";
-import { loginAction } from "../Redux/Actions/userActions";
-import toast from "react-hot-toast";
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Input } from '../Components/UsedInputs';
+import Layout from '../Layout/Layout';
+import { FiLogIn } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { LoginValidation } from '../Components/Validation/UserValidation';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { InlineError } from '../Components/Notfications/Error';
+import { loginAction } from '../Redux/Actions/userActions';
+import toast from 'react-hot-toast';
 
 function Login() {
   const dispatch = useDispatch();
@@ -36,25 +36,29 @@ function Login() {
   // useEffect
   useEffect(() => {
     if (userInfo?.isAdmin) {
-      navigate("/dashboard");
+      navigate('/dashboard');
     } else if (userInfo) {
-      navigate("/profile");
+      navigate('/profile');
     }
     if (isSuccess) {
       toast.success(`Welcome back ${userInfo?.fullName}`);
     }
+  }, [userInfo, isSuccess, navigate]);
+
+  // useEffect
+  useEffect(() => {
     if (isError) {
       toast.error(isError);
-      dispatch({ type: "USER_LOGIN_RESET" });
+      dispatch({ type: 'USER_LOGIN_RESET' });
     }
-  }, [userInfo, isError, isSuccess, navigate, dispatch]);
+  }, [isError, dispatch]);
 
   return (
     <Layout>
       <div className="container mx-auto px-2 my-24 flex-colo">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full 2xl:w-2/5 gap-8 flex-colo p-8 sm:p-14 md:w-3/5 bg-dry rounded-lg border border-border"
+          className="w-full 2xl:w-2/5 gap-8 flex-colo p-8 sm:p-14 md:w-3/5 bg-dry  rounded-lg border border-border"
         >
           <img
             src="/images/logo.png"
@@ -67,7 +71,7 @@ function Login() {
               placeholder="netflixo@gmail.com"
               type="email"
               name="email"
-              register={register("email")}
+              register={register('email')}
               bg={true}
             />
             {errors.email && <InlineError text={errors.email.message} />}
@@ -80,7 +84,7 @@ function Login() {
               type="password"
               bg={true}
               name="password"
-              register={register("password")}
+              register={register('password')}
             />
             {errors.password && <InlineError text={errors.password.message} />}
           </div>
@@ -93,7 +97,7 @@ function Login() {
             {
               // if loading show loading
               isLoading ? (
-                "Loading..."
+                'Loading...'
               ) : (
                 <>
                   <FiLogIn /> Sign In
@@ -102,7 +106,7 @@ function Login() {
             }
           </button>
           <p className="text-center text-border">
-            Don't have an account?{" "}
+            Don't have an account?{' '}
             <Link to="/register" className="text-dryGray font-semibold ml-2">
               Sign Up
             </Link>

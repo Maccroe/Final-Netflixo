@@ -20,7 +20,7 @@ export const getAllMoviesService = async (
 
 // get random movies Function
 export const getRandomMoviesService = async () => {
-  const { data } = await Axios.get("/movies/random/all");
+  const { data } = await Axios.get(`/movies/random/all`);
   return data;
 };
 
@@ -30,9 +30,9 @@ export const getMovieByIdService = async (id) => {
   return data;
 };
 
-// get top rated movies Function
-export const getTopRatedMoviesService = async () => {
-  const { data } = await Axios.get("/movies/rated/top");
+// get top rated movie Function
+export const getTopRatedMovieService = async () => {
+  const { data } = await Axios.get(`/movies/rated/top`);
   return data;
 };
 
@@ -68,7 +68,7 @@ export const deleteAllMoviesService = async (token) => {
 
 // create movie Function
 export const createMovieService = async (token, movie) => {
-  const { data } = await Axios.post("/movies", movie, {
+  const { data } = await Axios.post(`/movies`, movie, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

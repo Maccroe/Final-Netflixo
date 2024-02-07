@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import SideBar from "./SideBar";
-import { Input } from "./../../Components/Usedinputs";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { PasswordValidation } from "../../Components/Validation/UserValidation";
-import { InlineError } from "../../Components/Notfications/Error";
-import { changePasswordAction } from "../../Redux/Actions/userActions";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { InlineError } from "../../Components/Notfications/Error";
+import { Input } from "../../Components/UsedInputs";
+import { PasswordValidation } from "../../Components/Validation/UserValidation";
+import { changePasswordAction } from "../../Redux/Actions/userActions";
+import SideBar from "./SideBar";
 
 function Password() {
   const dispatch = useDispatch();

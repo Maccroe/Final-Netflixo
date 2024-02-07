@@ -19,7 +19,7 @@ function PopularMovies({ isLoading, movies }) {
         </div>
       ) : (
         <div className="mt-6">
-          <Empty message="It seem's like we dont have any movies" />
+          <Empty message="It seem's like we dont have any movie" />
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
-import React from "react";
-import Head from "../Components/Head";
-import Layout from "./../Layout/Layout";
+import React from 'react';
+import Head from '../Components/Head';
+import Layout from './../Layout/Layout';
 
 function AboutUs() {
   return (
@@ -53,11 +53,11 @@ function AboutUs() {
                 </div>
               </div>
             </div>
-              <img
-                src="/images/about2.jpg"
-                alt="aboutus"
-                className="w-full xl:block hidden h-header rounded-lg object-cover"
-              />
+            <img
+              src="/images/about2.jpg"
+              alt="aboutus"
+              className="w-full xl:block hidden h-header rounded-lg object-cover"
+            />
           </div>
         </div>
       </div>

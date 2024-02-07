@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FlexMovieItems from "../FlexMovieItems";
-import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import Loader from "../Notfications/Loader";
 import { RiMovie2Line } from "react-icons/ri";
@@ -53,9 +53,9 @@ const Swipper = ({ sameClass, movies }) => {
               <button
                 onClick={() => LikeMovie(movie, dispatch, userInfo)}
                 disabled={isLiked(movie) || isLoading}
-                className={`bg-white 
-                ${isLiked(movie) ? "text-subMain" : "text-white"}
-                hover:text-subMain transitions  px-4 py-3 rounded text-sm bg-opacity-30`}
+                className={`bg-white
+              ${isLiked(movie) ? "text-subMain" : "text-white"}
+               hover:text-subMain transitions  px-4 py-3 rounded text-sm bg-opacity-30`}
               >
                 <FaHeart />
               </button>
@@ -83,7 +83,7 @@ function Banner({ movies, isLoading }) {
             <RiMovie2Line />
           </div>
           <p className="text-border text-sm">
-            It seem's like we dont have any movies
+            It seem's like we dont have any movie
           </p>
         </div>
       )}

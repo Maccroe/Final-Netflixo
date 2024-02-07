@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaHeart, FaSearch } from "react-icons/fa";
+import { FaSearch, FaHeart } from "react-icons/fa";
 import { CgUser } from "react-icons/cg";
 import { useSelector } from "react-redux";
 
-function Navbar() {
+function NavBar() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.userLogin);
@@ -18,7 +18,7 @@ function Navbar() {
       navigate(`/movies/${search}`);
       setSearch(search);
     } else {
-      navigate("/movies");
+      navigate(`/movies`);
     }
   };
 
@@ -36,7 +36,7 @@ function Navbar() {
               />
             </Link>
           </div>
-          {/* search form */}
+          {/* search Form */}
           <div className="col-span-3">
             <form
               onSubmit={handleSearch}
@@ -101,4 +101,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;

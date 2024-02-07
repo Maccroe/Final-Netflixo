@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { IfMovieLiked, LikeMovie } from "../Context/Functionalities";
 
 function Movie({ movie }) {
@@ -26,9 +26,9 @@ function Movie({ movie }) {
           <button
             onClick={() => LikeMovie(movie, dispatch, userInfo)}
             disabled={isLiked || isLoading}
-            className={`h-9 w-9 text-sm flex-colo transitions 
-          ${isLiked ? "bg-transparent" : "bg-subMain"}
-          hover:bg-transparent border-2 border-subMain rounded-md  text-white`}
+            className={`h-9 w-9 text-sm flex-colo transitions
+           ${isLiked ? "bg-transparent" : "bg-subMain"}
+            hover:bg-transparent border-2 border-subMain rounded-md  text-white`}
           >
             <FaHeart />
           </button>

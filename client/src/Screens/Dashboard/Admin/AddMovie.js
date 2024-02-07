@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Uploder from "../../../Components/Uploder";
+import { Input, Message, Select } from "../../../Components/UsedInputs";
 import SideBar from "../SideBar";
-import { Input, Message, Select } from "../../../Components/Usedinputs";
-import Uploader from "../../../Components/Uploader";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { ImUpload } from "react-icons/im";
@@ -90,7 +90,7 @@ function AddMovie() {
       toast.error("Something went wrong");
       dispatch({ type: "CREATE_MOVIE_RESET" });
     }
-  }, [modalOpen, isError, isSuccess, dispatch, navigate, reset]);
+  }, [modalOpen, isSuccess, isError, dispatch, reset, navigate]);
 
   return (
     <SideBar>
@@ -158,15 +158,15 @@ function AddMovie() {
             <p className="text-border font-semibold text-sm">
               Image without Title
             </p>
-            <Uploader setImageUrl={setImageWithoutTitle} />
-            <Imagepreview image={imageWithoutTitle} name="imageWithoutTitle" />
+            <Uploder setImageUrl={setImageWithoutTitle} />
+            <Imagepreview image={imageWithoutTitle} name="imageWithouTitle" />
           </div>
           {/* image with title */}
           <div className="flex flex-col gap-2">
             <p className="text-border font-semibold text-sm">
               Image with Title
             </p>
-            <Uploader setImageUrl={setImageTitle} />
+            <Uploder setImageUrl={setImageTitle} />
             <Imagepreview image={imageTitle} name="imageTitle" />
           </div>
         </div>
@@ -193,7 +193,7 @@ function AddMovie() {
         </div>
         {/* MOVIE VIDEO */}
 
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2 w-full ">
           <label className="text-border font-semibold text-sm">
             Movie Video
           </label>
@@ -203,11 +203,11 @@ function AddMovie() {
                 Video Uploaded!!!
               </div>
             )}
-            <Uploader setImageUrl={setVideoUrl} />
+            <Uploder setImageUrl={setVideoUrl} />
           </div>
         </div>
         {/* CASTS */}
-        <div className="w-full grid lg:grid-cols-2 gap-6 items-start">
+        <div className="w-full grid lg:grid-cols-2 gap-6 items-start ">
           <button
             onClick={() => setModalOpen(true)}
             className="w-full py-4 bg-main border border-subMain border-dashed text-white rounded"

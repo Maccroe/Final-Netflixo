@@ -1,19 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import SideBar from "./SideBar";
-import Table from "../../Components/Table";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext, useEffect } from 'react';
+import Table from '../../Components/Table';
+import SideBar from './SideBar';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteFavoriteMoviesAction,
   getFavoriteMoviesAction,
-} from "../../Redux/Actions/userActions";
-import toast from "react-hot-toast";
-import Loader from "../../Components/Notfications/Loader";
-import { Empty } from "../../Components/Notfications/Empty";
-import { SidebarContext } from "../../Context/DrawerContext";
-import { DownloadVideo } from "../../Context/Functionalities";
-import FileSaver from "file-saver";
+} from '../../Redux/Actions/userActions';
+import toast from 'react-hot-toast';
+import Loader from '../../Components/Notfications/Loader';
+import { Empty } from '../../Components/Notfications/Empty';
+import { SidebarContext } from '../../Context/DrawerContext';
+import { DownloadVideo } from '../../Context/Functionalities';
+import FileSaver from 'file-saver';
 
-function FavouritesMovies() {
+function FavoritesMovies() {
   const dispatch = useDispatch();
   const { progress, setprogress } = useContext(SidebarContext);
   const { isLoading, isError, likedMovies } = useSelector(
@@ -28,7 +28,7 @@ function FavouritesMovies() {
 
   // delete movies handler
   const deleteMoviesHandler = () => {
-    window.confirm("Are you sure you want to delete all movies?") &&
+    window.confirm('Are you sure you want to delete all movies?') &&
       dispatch(deleteFavoriteMoviesAction());
   };
 
@@ -43,15 +43,19 @@ function FavouritesMovies() {
   // useEffect
   useEffect(() => {
     dispatch(getFavoriteMoviesAction());
+  }, [dispatch, isSuccess]);
+
+  // useEffect
+  useEffect(() => {
     if (isError || deleteError) {
       toast.error(isError || deleteError);
       dispatch({
         type: isError
-          ? "GET_FAVORITE_MOVIES_RESET"
-          : "DELETE_FAVORITE_MOVIES_RESET",
+          ? 'GET_FAVORITE_MOVIES_RESET'
+          : 'DELETE_FAVORITE_MOVIES_RESET',
       });
     }
-  }, [dispatch, isError, deleteError, isSuccess]);
+  }, [dispatch, isError, deleteError]);
 
   return (
     <SideBar>
@@ -64,7 +68,7 @@ function FavouritesMovies() {
               onClick={deleteMoviesHandler}
               className="bg-main font-medium transitions hover:bg-subMain border border-subMain text-white py-3 px-6 rounded"
             >
-              {deleteLoading ? "Deleting..." : "Delete All"}
+              {deleteLoading ? 'Deleting...' : 'Delete All'}
             </button>
           )}
         </div>
@@ -85,4 +89,4 @@ function FavouritesMovies() {
   );
 }
 
-export default FavouritesMovies;
+export default FavoritesMovies;

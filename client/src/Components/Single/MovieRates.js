@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Titles from "../Titles";
 import { BsBookmarkStarFill } from "react-icons/bs";
-import { Message, Select } from "../Usedinputs";
+import { Message, Select } from "../UsedInputs";
 import Rating from "../Stars";
 import { Empty } from "../Notfications/Empty";
 import { useDispatch, useSelector } from "react-redux";

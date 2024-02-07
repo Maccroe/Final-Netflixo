@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainModal from "./MainModal";
-import { Input } from "./../Usedinputs";
+import { Input } from "../UsedInputs";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createCategoryAction,
@@ -21,7 +21,7 @@ function CategoryModal({ modalOpen, setModalOpen, category }) {
     isSuccess: upSuccess,
   } = useSelector((state) => state.categoryUpdate);
 
-  // category handler
+  //  category handler
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -57,12 +57,12 @@ function CategoryModal({ modalOpen, setModalOpen, category }) {
       });
     }
 
-    // if category is not null then set title to category title
+    // if category is not null then set title to cetegory title
     if (category) {
       setTitle(category?.title);
     }
 
-    // if model is closed then set title to empty
+    // if modal is closed then set title to empty
     if (modalOpen === false) {
       setTitle("");
     }
@@ -85,7 +85,7 @@ function CategoryModal({ modalOpen, setModalOpen, category }) {
             onChange={(e) => setTitle(e.target.value)}
           />
           <button
-          disabled={isLoading || upLoading}
+            disabled={isLoading || upLoading}
             type="submit"
             className="w-full flex-rows gap-4 py-3 text-lg transitions hover:bg-dry border-2 border-subMain rounded bg-subMain text-white"
           >

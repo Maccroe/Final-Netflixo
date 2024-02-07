@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import SideBar from "../SideBar";
-import Table from "../../../Components/Table";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { TbPlayerTrackNext, TbPlayerTrackPrev } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
+import { Empty } from '../../../Components/Notfications/Empty';
+import Loader from '../../../Components/Notfications/Loader';
+import Table from '../../../Components/Table';
 import {
   deleteAllMoviesAction,
   deleteMovieAction,
   getAllMoviesAction,
-} from "./../../../Redux/Actions/MoviesActions";
-import toast from "react-hot-toast";
-import Loader from "../../../Components/Notfications/Loader";
-import { Empty } from "../../../Components/Notfications/Empty";
-import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
+} from '../../../Redux/Actions/MoviesActions';
+import SideBar from '../SideBar';
 
 function MoviesList() {
   const dispatch = useDispatch();
   const sameClass =
-    "text-white p-2 rounded font-semibold border-2 border-subMain hover:bg-subMain";
+    'text-white p-2 rounded font-semibold border-2 border-subMain hover:bg-subMain';
   // all movies
   const { isLoading, isError, movies, pages, page } = useSelector(
     (state) => state.getAllMovies
@@ -31,24 +31,28 @@ function MoviesList() {
 
   // delete movie handler
   const deleteMovieHandler = (id) => {
-    window.confirm("Are you sure you want to delete this movie?") &&
+    window.confirm('Are you sure you want do delete this movie?') &&
       dispatch(deleteMovieAction(id));
   };
 
-  // delete all movie handler
+  // delete all movies handler
   const deleteAllMoviesHandler = () => {
-    window.confirm("Are you sure you want to delete all movies?") &&
+    window.confirm('Are you sure you want do delete all movies?') &&
       dispatch(deleteAllMoviesAction());
   };
 
   // useEffect
   useEffect(() => {
     dispatch(getAllMoviesAction({}));
+  }, [dispatch]);
+
+  // error
+  useEffect(() => {
     // errors
     if (isError || deleteError || allError) {
       toast.error(isError || deleteError || allError);
     }
-  }, [dispatch, isError, deleteError, allError]);
+  }, [isError, deleteError, allError]);
 
   // pagination next and pev pages
   const nextPage = () => {
@@ -77,7 +81,7 @@ function MoviesList() {
               onClick={deleteAllMoviesHandler}
               className="bg-main font-medium transitions hover:bg-subMain border border-subMain text-white py-3 px-6 rounded"
             >
-              {allLoading ? "Deleting..." : "Delete All"}
+              {allLoading ? 'Deleting...' : 'Delete All'}
             </button>
           )}
         </div>

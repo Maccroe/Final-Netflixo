@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import Layout from "../Layout/Layout";
-import Banner from "../Components/Home/Banner";
-import PopularMovies from "../Components/Home/PopularMovies";
-import Promos from "../Components/Home/Promos";
-import TopRated from "../Components/Home/TopRated";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import Banner from '../Components/Home/Banner';
+import PopularMovies from '../Components/Home/PopularMovies';
+import Promos from '../Components/Home/Promos';
+import TopRated from '../Components/Home/TopRated';
+import Layout from '../Layout/Layout';
 import {
   getAllMoviesAction,
   getRandomMoviesAction,
   getTopRatedMovieAction,
-} from "../Redux/Actions/MoviesActions";
-import toast from "react-hot-toast";
+} from '../Redux/Actions/MoviesActions';
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -37,11 +37,14 @@ function HomeScreen() {
     dispatch(getAllMoviesAction({}));
     // get top rated movies
     dispatch(getTopRatedMovieAction());
-    // errors 
+  }, [dispatch]);
+
+  // erorrs
+  useEffect(() => {
     if (isError || randomError || topError) {
-      toast.error("Something went wrong!");
+      toast.error('Something went wrong!');
     }
-  }, [dispatch, isError, randomError, topError]);
+  }, [isError, randomError, topError]);
 
   return (
     <Layout>

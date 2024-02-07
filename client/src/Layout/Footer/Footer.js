@@ -1,68 +1,68 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const Links = [
     {
-      title: "Company",
+      title: 'Company',
       links: [
         {
-          name: "Home",
-          link: "/",
+          name: 'Home',
+          link: '/',
         },
         {
-          name: "About Us",
-          link: "/about-us",
+          name: 'About Us',
+          link: '/about-us',
         },
         {
-          name: "Contact Us",
-          link: "/contact-us",
+          name: 'Contact Us',
+          link: '/contact-us',
         },
         {
-          name: "Movies",
-          link: "/movies",
+          name: 'Movies',
+          link: '/movies',
         },
       ],
     },
     {
-      title: "Top Categories",
+      title: 'Top Categories',
       links: [
         {
-          name: "Action",
-          link: "#",
+          name: 'Action',
+          link: '#',
         },
         {
-          name: "Romantic",
-          link: "#",
+          name: 'Romantic',
+          link: '#',
         },
         {
-          name: "Drama",
-          link: "#",
+          name: 'Drama',
+          link: '#',
         },
         {
-          name: "Historical",
-          link: "#",
+          name: 'Historical',
+          link: '#',
         },
       ],
     },
     {
-      title: "My Account",
+      title: 'My Account',
       links: [
         {
-          name: "Dashboard",
-          link: "/dashboard",
+          name: 'Dashboard',
+          link: '/dashboard',
         },
         {
-          name: "My Favorites",
-          link: "/favorite",
+          name: 'My Favorites',
+          link: '/favorite',
         },
         {
-          name: "Profile",
-          link: "/profile",
+          name: 'Profile',
+          link: '/profile',
         },
         {
-          name: "Change Password",
-          link: "/password",
+          name: 'Change Password',
+          link: '/password',
         },
       ],
     },

@@ -6,8 +6,8 @@ function MainDrawer({ children, drawerOpen, closeDrawer }) {
     <Drawer
       open={drawerOpen}
       onClose={closeDrawer}
-      level={null}
       handler={false}
+      level={null}
       placement="right"
     >
       {children}
