@@ -109,7 +109,7 @@ function Footer() {
               <br />
               <span>Tell: +255 754 661 423</span>
               <br />
-              <span>Email: maccroebusiness@gmail.com</span>
+              <span>Email: info.mac@gmail.com</span>
             </p>
           </div>
         </div>
