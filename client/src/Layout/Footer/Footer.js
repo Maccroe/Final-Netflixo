@@ -109,7 +109,7 @@ function Footer() {
               <br />
               <span>Tell: +255 754 661 423</span>
               <br />
-              <span>Email: info@zpunet.com</span>
+              <span>Email: maccroebusiness@gmail.com</span>
             </p>
           </div>
         </div>

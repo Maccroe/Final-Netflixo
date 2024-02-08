@@ -10,7 +10,7 @@ function ContactUs() {
       title: 'Email Us',
       info: 'Interactively grow backend ideas for cross-platform models.',
       icon: FiMail,
-      contact: 'info@zpunet.com',
+      contact: 'maccroebusiness@gmail.com',
     },
     {
       id: 2,

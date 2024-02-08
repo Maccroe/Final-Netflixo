@@ -13,7 +13,7 @@ function MobileFooter() {
   const { userInfo } = useSelector((state) => state.userLogin);
   const active = "bg-white text-main";
   const inActive =
-    "transitions text-2xl flex-colo hover:bg-white hover:text-main text-white rounded-md px-4 py-3";
+    "transitions text-2xl flex-colo hover:bg-white hover:text-main text-bgdry rounded-md px-4 py-3";
 
   const Hover = ({ isActive }) =>
     isActive ? `${active} ${inActive}` : inActive;

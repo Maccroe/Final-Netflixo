@@ -1,13 +1,13 @@
-// ********* Netflixo Website is created by Zpunet ******************
+// ********* Netflixo Website is created by maccroe ******************
 // ********* If you get an error please contact us ******
-// ******** Email:info@zpunet.com *********
-// ********* Website:www.zpunet.com *********
+// ******** Email:info@maccroe.com *********
+// ********* Website:www.maccroe.com *********
 // ********* Phone:+255 65 535 2744 *********
 // ********* Youtub Channel: https://www.youtube.com/channel/UCOYwYO-LEsrjqBs6xXSfq1w *********
 
 // ******** Support my work with *********
-// ********* https://www.patreon.com/zpunet *********
-// ********* https://www.buymeacoffee.com/zpunet *********
+// ********* https://www.patreon.com/maccroe *********
+// ********* https://www.buymeacoffee.com/maccroe *********
 
 // ********* This is the main component of the website *********
 import Aos from "aos";
